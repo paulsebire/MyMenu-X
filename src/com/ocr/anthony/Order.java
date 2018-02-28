@@ -164,25 +164,19 @@ public class Order {
      */
     public void askSomething(String category, String[] responses) {
         System.out.println("Choix " + category);
-        for (int i = 1; i <= responses.length; i++) {
+        for (int i = 1; i <= responses.length; i++)
             System.out.println(i + " - " + responses[i - 1]);
-        }
-        System.out.println("Que souhaitez vous comme " + category + "?");
+        System.out.println("Que souhaitez-vous comme " + category + "?");
         int nbResponse;
         boolean responseIsGood;
         do {
-            nbResponse =sc.nextInt();
-            if (nbResponse >= 1 && nbResponse <= responses.length) {
-                responseIsGood = true;
-            } else {
-                responseIsGood = false;
-            }
-            if (responseIsGood == true) {
+            nbResponse = sc.nextInt();
+            responseIsGood = (nbResponse >= 1 && nbResponse <= responses.length);
+            if (responseIsGood)
                 System.out.println("Vous avez choisi comme " + category + " : " + responses[nbResponse - 1]);
-            } else {
+            else
                 System.out.println("Vous n'avez pas choisi un des choix proposés comme " + category);
-            }
-        } while (responseIsGood == false);
+        } while (!responseIsGood);
     }
 
     /**
