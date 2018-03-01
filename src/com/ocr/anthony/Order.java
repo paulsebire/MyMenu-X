@@ -89,7 +89,7 @@ public class Order {
             orderSummary += "Menu " + (i + 1) + ":%n";
             String orderLine = runMenu();
             try {
-                Files.write(orderPath, orderLine.getBytes(), APPEND);
+                Files.write(orderPath, String.format(orderLine).getBytes(), APPEND);
             } catch (IOException e) {
                 System.out.println("Ooops une erreur est survenue. Merci de réessayer plus tard");
                 return;
